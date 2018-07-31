@@ -71,7 +71,7 @@ class PostController extends Rest
         $this->success($postObj);
     }
 
-    public function getAction()
+    public function getAction($id = null)
     {
 
         $data = [];
@@ -80,7 +80,12 @@ class PostController extends Rest
             $data = ["status" => "publish"];
         }
 
-        $this->success(Post::find($data));
+        if (is_null($id)) {
+            return $this->success(Post::find($data));
+        } else {
+            $this->success(Post::findById($id));
+        }
+
     }
 
 

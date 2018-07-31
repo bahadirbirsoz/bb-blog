@@ -1,0 +1,6 @@
+vendor
+myblog
+bower_components
+component
+.idea
+composer.lock

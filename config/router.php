@@ -20,6 +20,9 @@ $router->post('/api/post', '\Ayep\Controller\PostController@postAction');
 $router->put('/api/post/(\d+)', '\Ayep\Controller\PostController@putAction');
 $router->delete('/api/post/(\d+)', '\Ayep\Controller\PostController@deleteAction');
 $router->get('/api/post', '\Ayep\Controller\PostController@getAction');
+$router->get('/api/post/(\d+)', '\Ayep\Controller\PostController@getAction');
+
+
 $router->post('/api/post/(\d+)/publish', '\Ayep\Controller\PostController@publishAction');
 $router->post('/api/post/(\d+)/unpublish', '\Ayep\Controller\PostController@unpublishAction');
 
