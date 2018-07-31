@@ -77,9 +77,18 @@ class Rest
         return isset($data->$key);
     }
 
+    protected function allowAccess()
+    {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: *');
+        header('Access-Control-Allow-Headers: *');
+        header("Content-Type: application/json");
+    }
+
     public function success($data)
     {
-        header("Content-Type: application/json");
+        $this->allowAccess();
+
         echo json_encode([
             "status" => 200,
             "data" => $data
@@ -89,7 +98,7 @@ class Rest
 
     public function fail()
     {
-        header("Content-Type: application/json");
+        $this->allowAccess();
         echo json_encode([
             "status" => 400,
             "data" => Error::getErrors()
